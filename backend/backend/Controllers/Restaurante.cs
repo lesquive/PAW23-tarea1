@@ -10,7 +10,7 @@ namespace tarea1.Controllers
     public class RestaurantesController : ControllerBase
     {
 
-        private int nextId = 5;
+        private static int nextId = 5;
 
         private static List<Restaurante> restaurantes = new List<Restaurante>
         {

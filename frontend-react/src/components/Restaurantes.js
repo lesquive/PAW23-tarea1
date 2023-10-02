@@ -3,6 +3,7 @@ import axios from "axios";
 import "./Restaurantes.css";
 import { Link } from "react-router-dom";
 import DeleteIcon from "@mui/icons-material/Delete";
+import Grid from "@mui/material/Grid";
 
 function Restaurantes() {
   const [restaurants, setRestaurants] = useState([]);
@@ -34,6 +35,13 @@ function Restaurantes() {
   return (
     <div className="restaurant-container">
       <h2>Restaurantes</h2>
+      <Grid container direction="row" alignItems="center" spacing={2}>
+        <Grid item xs={8}>
+          <Link to="/agregar">
+            <button className="btn">+ Agregar Restaurante</button>
+          </Link>
+        </Grid>
+      </Grid>
       <table>
         <thead>
           <tr>

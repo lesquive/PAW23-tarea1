@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import "./EditarRestaurante.css";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "./AgregarRestaurante.css";
 import axios from "axios";
 
-function EditarRestaurante() {
+function AgregarRestaurante() {
   const navigate = useNavigate();
   const [restaurant, setRestaurant] = useState({
-    id: "",
     nombre: "",
     dueño: "",
     provincia: "",
@@ -14,19 +13,6 @@ function EditarRestaurante() {
     distrito: "",
     direcciónExacta: "",
   });
-
-  const restaurantId = useParams().id;
-
-  useEffect(() => {
-    axios
-      .get(`https://localhost:7059/api/restaurantes/${restaurantId}`)
-      .then((response) => {
-        setRestaurant(response.data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, [restaurantId]);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -39,21 +25,19 @@ function EditarRestaurante() {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post(
-        `https://localhost:7059/api/restaurantes/${restaurant.id}`,
-        restaurant
-      )
+      .post("https://localhost:7059/api/restaurantes", restaurant)
       .then((response) => {
-        console.log("Restaurant actualizado:", response.data);
+        console.log("Nuevo restaurante creado:", response.data);
+        navigate("/"); // Redirect to the list of restaurantes
       })
       .catch((error) => {
-        console.error("Error al actualizar restaurante:", error);
+        console.error("Error al crear restaurante:", error);
       });
   };
 
   return (
-    <div className="editar-restaurante-container">
-      <h2>Editar Restaurante</h2>
+    <div className="agregar-restaurante-container">
+      <h2>Agregar Nuevo Restaurante</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Nombre:</label>
@@ -110,14 +94,14 @@ function EditarRestaurante() {
           />
         </div>
         <button type="submit" className="btn">
-          Actualizar
+          Agregar
         </button>
-        <button className="btn" onClick={() => navigate(-1)}>
-          Atras
+        <button className="btn" onClick={() => navigate("/restaurantes")}>
+          Atrás
         </button>
       </form>
     </div>
   );
 }
 
-export default EditarRestaurante;
+export default AgregarRestaurante;
