@@ -11,6 +11,12 @@ backend/backend/obj/
 backend/bin/
 backend/obj/
 
+frontend-razor/frontend-razor/bin/
+frontend-razor/frontend-razor/obj/
+
+frontend-razor/bin/
+frontend-razor/obj/
+
 # Ignore user-specific files for the backend
 backend/.user
 backend/.suo

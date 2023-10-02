@@ -1,0 +1,40 @@
+﻿@page
+@model CrearRestauranteModel
+
+<h1>Crear Nuevo Restaurante</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" class="form-control" asp-for="NewRestaurante.Nombre" required>
+    </div>
+
+    <div class="form-group">
+        <label for="dueño">Dueño</label>
+        <input type="text" id="dueño" name="dueño" class="form-control" asp-for="NewRestaurante.Dueño">
+    </div>
+
+    <div class="form-group">
+        <label for="provincia">Provincia</label>
+        <input type="text" id="provincia" name="provincia" class="form-control" asp-for="NewRestaurante.Provincia">
+    </div>
+
+    <div class="form-group">
+        <label for="cantón">Cantón</label>
+        <input type="text" id="cantón" name="cantón" class="form-control" asp-for="NewRestaurante.Cantón">
+    </div>
+
+    <div class="form-group">
+        <label for="distrito">Distrito</label>
+        <input type="text" id="distrito" name="distrito" class="form-control" asp-for="NewRestaurante.Distrito">
+    </div>
+
+    <div class="form-group">
+        <label for="direcciónExacta">Dirección Exacta</label>
+        <input type="text" id="direcciónExacta" name="direcciónExacta" class="form-control" asp-for="NewRestaurante.DirecciónExacta">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Crear</button>
+</form>
+
+<a asp-page="/Restaurantes">Volver a la Lista</a>

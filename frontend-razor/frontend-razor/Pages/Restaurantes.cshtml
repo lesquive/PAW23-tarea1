@@ -1,0 +1,35 @@
+﻿@page "/"
+@model RestaurantesModel
+
+    <h1>Lista de Restaurantes</h1>
+
+    <a asp-page="/CrearRestaurante" class="btn btn-success"> + Restaurante Nuevo</a>
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Dueño</th>
+                <th>Provincia</th>
+                <th>Cantón</th>
+                <th>Distrito</th>
+                <th>DirecciónExacta</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var restaurant in Model.Restaurantes)
+            {
+                <tr>
+                    <td> <a asp-page="/EditarRestaurante" asp-route-id="@restaurant.Id">@restaurant.Id</a></td>
+                    <td>@restaurant.Nombre</td>
+                    <td>@restaurant.Dueño</td>
+                    <td>@restaurant.Provincia</td>
+                    <td>@restaurant.Cantón</td>
+                    <td>@restaurant.Distrito</td>
+                    <td>@restaurant.DirecciónExacta</td>
+                </tr>
+            }
+        </tbody>
+    </table>
