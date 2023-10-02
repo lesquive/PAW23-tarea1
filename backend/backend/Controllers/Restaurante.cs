@@ -1,9 +1,11 @@
 ﻿using backend.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace tarea1.Controllers
 {
     [Route("api/restaurantes")]
+    [EnableCors("AllowLocalhost")]
     [ApiController]
     public class RestaurantesController : ControllerBase
     {
@@ -56,12 +58,14 @@ namespace tarea1.Controllers
         };
 
         [HttpGet]
+        [EnableCors("AllowLocalhost")]
         public IActionResult Get()
         {
             return Ok(restaurantes);
         }
 
         [HttpGet("{id}", Name = "GetRestaurante")]
+        [EnableCors("AllowLocalhost")]
         public IActionResult Get(int id)
         {
             var restaurante = restaurantes.Find(r => r.Id == id);
@@ -73,6 +77,7 @@ namespace tarea1.Controllers
         }
 
         [HttpPost]
+        [EnableCors("AllowLocalhost")]
         public IActionResult Post([FromBody] Restaurante restaurante)
         {
             restaurante.Id = nextId++;
@@ -81,6 +86,7 @@ namespace tarea1.Controllers
         }
 
         [HttpPost("{id}")]
+        [EnableCors("AllowLocalhost")]
         public IActionResult Post(int id, [FromBody] Restaurante restaurante)
         {
             var existingRestaurante = restaurantes.Find(r => r.Id == id);
@@ -119,6 +125,7 @@ namespace tarea1.Controllers
 
 
         [HttpDelete("{id}")]
+        [EnableCors("AllowLocalhost")]
         public IActionResult Delete(int id)
         {
             var restaurante = restaurantes.Find(r => r.Id == id);

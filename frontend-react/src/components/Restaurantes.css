@@ -1,0 +1,39 @@
+/* Restaurantes.css */
+
+.restaurant-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px; /* Adjust the margin as needed */
+}
+
+table {
+  border-collapse: collapse;
+  width: 80%; /* Adjust the width as needed */
+  margin-top: 20px; /* Add margin to the table if necessary */
+}
+
+table,
+th,
+td {
+  border: 1px solid #ddd;
+  text-align: center;
+  padding: 8px;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+.delete-button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.delete-button:hover {
+  background-color: #d32f2f;
+}
