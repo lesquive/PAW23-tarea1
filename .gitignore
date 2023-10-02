@@ -14,6 +14,9 @@ backend/obj/
 frontend-razor/frontend-razor/bin/
 frontend-razor/frontend-razor/obj/
 
+frontend-razor/frontend-razor/wwwroot/lib/
+frontend-razor/wwwroot/lib/
+
 frontend-razor/bin/
 frontend-razor/obj/
 
